@@ -46,9 +46,9 @@ export const fonts = {
 
   fontsToSass: (cb) => {
     let fontsFile = `${app.path.src._self}/sass/base/_fonts.scss`;
-    fs.unlinkSync(`${app.path.src._self}/sass/base/_fonts.scss`);
     fs.readdir(app.path.build.fonts, (err, fontsFiles) => {
       if (fontsFiles) {
+        fs.unlinkSync(fontsFile);
         if (!fs.existsSync(fontsFile)) {
           fs.writeFile(
             fontsFile,
