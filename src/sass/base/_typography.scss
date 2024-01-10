@@ -1,1 +1,5 @@
-@use '../abstracts' as type;
+@use "../abstracts" as type;
+
+h1 {
+  @include type.fluid-font(320px, 992px, 30px, 90px);
+}
