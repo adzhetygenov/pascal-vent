@@ -6,6 +6,7 @@ body {
   font-family: var(--ff-primary);
 }
 
+// Generating fluid-font for h1-h2 headings
 @each $scale, $sizes in $type-scale {
   #{$scale} {
     @include fluid-font(
@@ -26,6 +27,11 @@ h4 {
   line-height: 1.3;
 }
 
+a {
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-400);
+  font-size: rem(15);
+}
 // 16 33
 // 15 17
 // 45 12
