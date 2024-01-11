@@ -98,3 +98,8 @@ textarea:not([rows]) {
 :target {
   scroll-margin-block: 5ex;
 }
+
+/* Remove default styles from list elements */
+ul {
+  list-style-type: none;
+}

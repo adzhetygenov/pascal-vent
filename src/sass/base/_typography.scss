@@ -1,5 +1,40 @@
-@use "../abstracts" as type;
+@use "sass:map";
+@use "../abstracts" as *;
 
-h1 {
-  @include type.fluid-font(320px, 992px, 30px, 90px);
+// Body font-family
+body {
+  font-family: var(--ff-primary);
 }
+
+@each $scale, $sizes in $type-scale {
+  #{$scale} {
+    @include fluid-font(
+      320px,
+      992px,
+      map.get($sizes, "sm"),
+      map.get($sizes, "lg")
+    );
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--ff-secondary);
+  font-weight: var(--fw-600);
+  line-height: 1.3;
+}
+
+// 16 33
+// 15 17
+// 45 12
+// 14 8
+// 35 8
+// 24 7
+// 20 6
+// 64 3
+// 26 3
+// 17 2
+// 22 1
+// 21 1

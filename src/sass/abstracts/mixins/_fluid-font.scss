@@ -1,5 +1,6 @@
 @use "../functions" as ff;
 @use "media" as ff-media;
+// Example @include fluid-font(320px, 992px, 30px, 50px)
 
 @mixin fluid-font($min-width, $max-width, $min-font-size, $max-font-size) {
   $unit1: unit($min-width);

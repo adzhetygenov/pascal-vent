@@ -1,0 +1,21 @@
+@use "../abstracts/" as *;
+
+// Custom Properties
+:root {
+  // Colors ( variables in /abstracts/variables/colors )
+  @each $shades, $colors in $colors {
+    @each $shade, $value in $colors {
+      --clr-#{$shades}-#{$shade}: #{$value};
+    }
+  }
+
+  // Font-family ( variables in /abstracts/variables/font-family )
+  @each $font, $name in $ff {
+    --ff-#{$font}: #{$name};
+  }
+
+  // Font-weight ( variables in /scss/abstracts/font-weight )
+  @each $weight, $value in $fw {
+    --fw-#{$weight}: #{$value};
+  }
+}
