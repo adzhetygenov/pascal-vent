@@ -1,0 +1,73 @@
+@use "../abstracts/" as *;
+
+.nav {
+  position: fixed;
+  inset: 0;
+  padding: rem(120) 0 0;
+  border-radius: 50%;
+  background-color: hsla(127, 77%, 92%, 1);
+  transform: translateY(-200%);
+  transition: 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+  @include larger-than(md) {
+    order: 3;
+    flex: 0 0 100%;
+    transform: none;
+    position: static;
+    border-radius: 0;
+    background-color: transparent;
+    padding: 1rem;
+  }
+
+  @include larger-than(xl) {
+    flex: none;
+    order: 2;
+  }
+
+  &--is-open {
+    transform: translateY(0);
+    border-radius: rem(30);
+  }
+
+  &__btn {
+    @include size(box, 49);
+    position: relative;
+    z-index: 2;
+    border-radius: rem(15);
+    box-shadow: 0px 4px 10px 0px hsla(129, 12%, 33%, 0.15);
+
+    @include larger-than(md) {
+      display: none;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      @include bg-icon("mobile_btn.svg", #{rem(25)} 1rem);
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: rem(30);
+
+    @include larger-than(md) {
+      justify-content: space-around;
+      flex-direction: row;
+    }
+
+    @include larger-than(xl) {
+      justify-content: center;
+    }
+  }
+
+  &__link {
+    font-size: rem(15);
+    color: hsl(var(--clr-primary-400));
+    text-transform: lowercase;
+  }
+}

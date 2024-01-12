@@ -1,0 +1,5 @@
+mixin line(size, pos)
+	if ( pos === 'right' )
+		span.line.line--right(style=`--line-width: ${size}`)
+	else
+		span.line.line--left(style=`--line-width: ${size}`)

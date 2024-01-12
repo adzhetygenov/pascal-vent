@@ -1,0 +1,8 @@
+@mixin bg-icon($icon, $size: contain) {
+  background: {
+    image: url(../img/#{$icon});
+    size: $size;
+    position: center;
+    repeat: no-repeat;
+  }
+}

@@ -1,0 +1,18 @@
+@use "../abstracts/" as *;
+
+.line {
+  --line-width: #{rem(90)};
+  width: var(--line-width);
+  height: rem(2);
+  background-color: hsl(var(--clr-primary-200));
+  display: inline-block;
+  margin-bottom: 0.5ch;
+
+  &--right {
+    margin-right: 1rem;
+  }
+
+  &--left {
+    margin-left: 1rem;
+  }
+}

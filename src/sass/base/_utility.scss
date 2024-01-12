@@ -1,0 +1,11 @@
+@use "../abstracts/" as *;
+
+// Colors ( variables in /abstracts/variables/colors )
+// .text-primary-100, .text-primary-200, etc.
+@each $shades, $colors in $colors {
+  @each $shade, $value in $colors {
+    .text-#{$shades}-#{$shade} {
+      color: hsl(var(--clr-#{$shades}-#{$shade}));
+    }
+  }
+}

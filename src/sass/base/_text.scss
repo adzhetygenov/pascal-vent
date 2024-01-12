@@ -1,0 +1,10 @@
+@use "../abstracts/" as *;
+p {
+  &.text {
+    margin-block-start: rem(20);
+  }
+}
+
+.text {
+  color: hsla(0, 0%, 52%, 1);
+}

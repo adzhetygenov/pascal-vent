@@ -71,9 +71,15 @@ a:not([class]) {
 
 button,
 a {
+  text-decoration: none;
+  cursor: pointer;
   transition: 0.3s ease-out;
 }
 
+button {
+  border: 0;
+  outline: 0;
+}
 /* Make images easier to work with */
 img,
 picture {

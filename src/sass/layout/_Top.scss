@@ -1,0 +1,28 @@
+@use "../abstracts/" as *;
+
+.top {
+  margin-bottom: 5rem;
+  grid-area: top;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  // @include larger-than(xl) {
+  //   background: hsla(127, 77%, 92%, 1);
+  //   border-radius: 0 0 rem(70) rem(70);
+  // }
+  &__callback {
+    display: none;
+
+    @include larger-than(md) {
+      display: block;
+      order: 1;
+    }
+
+    @include larger-than(xl) {
+      order: 3;
+    }
+  }
+}

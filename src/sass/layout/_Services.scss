@@ -1,0 +1,184 @@
+@use "../abstracts/" as *;
+
+.services {
+  position: relative;
+
+  @include larger-than(xl) {
+    overflow: hidden;
+  }
+
+  &__container {
+    @include larger-than(xl) {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      column-gap: rem(120);
+      align-items: center;
+      grid-template-areas:
+        "heading services"
+        "description services";
+    }
+  }
+
+  &__heading {
+    @include larger-than(xl) {
+      align-self: flex-end;
+      grid-area: heading;
+    }
+  }
+
+  &__description {
+    @include larger-than(xl) {
+      align-self: flex-start;
+      grid-area: description;
+    }
+  }
+  &__services {
+    grid-row-end: -1;
+    margin: 2rem 0 0;
+    border-radius: rem(50);
+    background-color: hsla(127, 77%, 92%, 1);
+
+    @include larger-than(lg) {
+      margin: 0;
+      border-radius: 0;
+      background-color: transparent;
+    }
+
+    @include larger-than(xl) {
+      position: relative;
+      grid-area: services;
+    }
+  }
+
+  &__inner {
+    padding: rem(15);
+
+    @include larger-than(lg) {
+      display: flex;
+    }
+
+    @include larger-than(xl) {
+      padding: 0;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: rem(27);
+
+    @include larger-than(lg) {
+      flex-direction: column;
+      flex: 0 0 rem(65);
+      margin-bottom: 0;
+    }
+  }
+
+  &__btn {
+    flex: 1;
+    border-radius: rem(40) 0 0 0;
+    font-size: rem(14);
+    background-color: hsl(var(--clr-neutral-100));
+    color: hsl(var(--clr-primary-400));
+    padding: rem(24) 0;
+    box-shadow: -2px -2px 12px 0px transparent inset;
+
+    @include larger-than(lg) {
+      flex: none;
+      width: rem(65);
+      align-items: center;
+      writing-mode: vertical-rl;
+      transform: rotate(-180deg);
+      transform-origin: center;
+      border-radius: 0 0 rem(40) 0;
+    }
+
+    &:not(:first-child) {
+      border-radius: 0 rem(40) 0 0;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: hsla(127, 53%, 58%, 1);
+      color: hsl(var(--clr-neutral-100));
+      box-shadow: -2px -2px 12px 0px hsla(119, 54%, 28%, 0.3) inset;
+    }
+  }
+
+  &__content {
+    @include larger-than(md) {
+      display: grid;
+      grid-template-columns: 4fr 2fr;
+      gap: rem(40);
+      place-items: center start;
+    }
+
+    @include larger-than(lg) {
+      flex: 1;
+      padding: 0 0 0 rem(45);
+      background-color: hsla(127, 77%, 92%, 1);
+      border-radius: rem(50) 0 0 rem(50);
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: 1rem;
+
+    @include larger-than(xl) {
+      padding: rem(100) 0;
+    }
+  }
+
+  &__item {
+    color: var(--clr-primary-400);
+    line-height: 1.5;
+    display: inline-flex;
+    gap: 1rem;
+
+    &::before {
+      content: "";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 rem(30);
+      height: rem(30);
+      border-radius: rem(10);
+      @include bg-icon("t1.svg", 18px 18px);
+      background-color: hsl(var(--clr-neutral-100));
+    }
+  }
+
+  &__image {
+    margin-top: rem(30);
+    height: 170px;
+    width: 100%;
+    border-radius: rem(50);
+    overflow: hidden;
+    box-shadow: 0px -4px 8px 0px hsla(120, 49%, 12%, 0.35);
+
+    @include larger-than(md) {
+      place-self: end;
+      height: 100%;
+      width: auto;
+      margin-top: 0;
+      border-radius: rem(65) 0 0 rem(65);
+
+      img {
+        height: 400px;
+
+        @include larger-than(lg) {
+          height: auto;
+        }
+      }
+    }
+
+    @include larger-than(xl) {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      transform: translateX(calc(100% - rem(45)));
+    }
+  }
+}

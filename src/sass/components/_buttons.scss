@@ -1,0 +1,95 @@
+@use "../abstracts/" as *;
+
+.btn {
+  --btn-clr-bg: hsla(128, 38%, 72%, 1); // Button background-color
+  --btn-clr-shadow: hsla(119, 54%, 28%, 0.36); // Button Shadow color
+
+  --btn-clr-hover: hsla(127, 70%, 61%, 1); // Button bg-color on:hover
+  --btn-clr-focus: hsla(128, 53%, 58%, 1); // Button bg-color on:focus
+
+  --btn-border-radius: #{rem(17)}; // Button border-radius
+  --btn-padding-y: #{rem(19)}; // Button vertical padding
+  --btn-width: #{rem(190)}; // Button width
+
+  padding: var(--btn-padding-y) 0;
+  width: var(--btn-width);
+  border-radius: var(--btn-border-radius);
+  background-color: var(--btn-clr-bg);
+  color: hsl(var(--clr-neutral-100));
+  box-shadow: 2px -2px 12px 0px var(--btn-clr-shadow) inset;
+
+  &:hover {
+    background-color: var(--btn-clr-hover);
+  }
+
+  &:focus {
+    background-color: var(--btn-clr-focus);
+  }
+
+  &::before {
+    --btn-backface-radius: #{rem(20)}; // Button back decorative radius
+    --btn-backface-color: hsl(
+      var(--clr-neutral-100)
+    ); // Button back decorative color
+    --btn-backface-offset: #{rem(-10)}; // Button back decorative offset from the edges of the button
+
+    content: "";
+    position: absolute;
+    inset: var(--btn-backface-offset);
+    z-index: -1;
+    background-color: var(--btn-backface-color);
+    border-radius: var(--btn-backface-radius);
+  }
+
+  // Large Button
+  &--lg {
+    --btn-width: #{rem(450)};
+    --btn-padding-y: 2rem;
+    --btn-border-radius: #{rem(30)};
+
+    &::before {
+      --btn-backface-offset: #{rem(-15)};
+      --btn-backface-color: hsla(var(--clr-primary-200), 0.25);
+      --btn-backface-radius: #{rem(40)};
+    }
+  }
+
+  // Slider Button
+  &--slider {
+    --btn-padding-y: 0;
+    --btn-width: 2rem;
+    --btn-border-radius: 50%;
+
+    aspect-ratio: 1;
+    position: relative;
+
+    &::before {
+      --btn-backface-color: hsla(var(--clr-primary-200), 0.25);
+      --btn-backface-radius: 50%;
+      --btn-backface-offset: #{rem(-6)};
+    }
+
+    svg {
+      position: absolute;
+      inset: 0;
+      fill: hsl(var(--clr-neutral-100));
+    }
+    // Slider previous button, just rotated horizontally
+    &-prev {
+      transform: rotate(-180deg);
+    }
+
+    &-disabled {
+      --btn-clr-bg: hsl(var(--clr-neutral-100));
+      pointer-events: none;
+
+      svg {
+        fill: hsla(127, 77%, 92%, 1);
+      }
+
+      &::before {
+        --btn-backface-color: var(--clr-neutral-100);
+      }
+    }
+  }
+}

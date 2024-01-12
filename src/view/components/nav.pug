@@ -1,0 +1,4 @@
+mixin nav(data)
+	nav(class='nav')&attributes(attributes)
+		each item in data.links
+			a(class='nav__link')= item

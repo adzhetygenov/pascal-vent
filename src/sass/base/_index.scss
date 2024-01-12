@@ -1,10 +1,15 @@
 @forward "reset";
 
+@forward "utility";
+
 @forward "fonts";
 
 @forward "root";
 @forward "typography";
 
 // Components
+@forward "sections";
+@forward "headings";
+@forward "text";
 @forward "container";
 @forward "links";
