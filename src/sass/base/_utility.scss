@@ -1,5 +1,8 @@
 @use "../abstracts/" as *;
 
+body.open {
+  overflow-y: hidden;
+}
 // Colors ( variables in /abstracts/variables/colors )
 // .text-primary-100, .text-primary-200, etc.
 @each $shades, $colors in $colors {

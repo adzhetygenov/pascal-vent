@@ -10,8 +10,8 @@
   &__container {
     @include larger-than(xl) {
       display: grid;
-      grid-template-columns: 5fr 7fr;
-      column-gap: rem(120);
+      grid-template-columns: 6fr 6fr;
+      column-gap: rem(110);
       align-items: center;
       grid-template-areas:
         "heading services"
@@ -75,6 +75,7 @@
   }
 
   &__btn {
+    position: relative;
     flex: 1;
     border-radius: rem(40) 0 0 0;
     font-size: rem(14);
@@ -84,6 +85,7 @@
     box-shadow: -2px -2px 12px 0px transparent inset;
 
     @include larger-than(lg) {
+      overflow: hidden;
       flex: none;
       width: rem(65);
       align-items: center;

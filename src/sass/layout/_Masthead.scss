@@ -1,20 +1,42 @@
 @use "../abstracts/" as *;
 
 .masthead {
+  overflow: hidden;
+  position: relative;
   padding-bottom: rem(270);
-  background: {
-    image: url(../img/masthead_bg.jpg);
-    repeat: no-repeat;
-    size: contain;
-    position: bottom center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transform: rotate(90deg);
+    aspect-ratio: 1;
+    background: {
+      image: url(../img/masthead_bg-lg.png);
+      repeat: no-repeat;
+      size: cover;
+    }
+
+    @include larger-than(sm) {
+      bottom: rem(-150);
+    }
+
+    @include larger-than(md) {
+      bottom: rem(-300);
+    }
+
+    @include larger-than(lg) {
+      inset: 0;
+      transform: translateX(50%);
+      width: auto;
+      max-width: none;
+      aspect-ratio: auto;
+    }
   }
 
   @include larger-than(lg) {
     padding-bottom: rem(35);
-    background: {
-      image: url(../img/masthead_bg-lg.png);
-      position: right center;
-    }
   }
 
   &__container {
@@ -28,6 +50,7 @@
   }
 
   &__content {
+    position: relative;
     @include larger-than(lg) {
       grid-area: content;
     }

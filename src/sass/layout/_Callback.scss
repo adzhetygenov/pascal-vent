@@ -1,0 +1,46 @@
+@use "../abstracts/" as *;
+
+.callback {
+  background-color: hsla(127, 77%, 92%, 1);
+
+  &__heading {
+    margin-bottom: rem(30);
+  }
+
+  &__form {
+    display: grid;
+    gap: rem(25);
+
+    @include larger-than(md) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include larger-than(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__input {
+    padding: rem(20);
+    border: 0;
+    outline: none;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 12px 0px hsla(129, 12%, 33%, 0.15);
+    color: hsl(var(--clr-primary-200));
+
+    &::placeholder {
+      color: hsl(var(--clr-primary-200), 0.7);
+      font-size: rem(14);
+    }
+  }
+
+  &__btn {
+    --btn-width: 100%;
+    margin-top: rem(20);
+
+    @include larger-than(md) {
+      grid-column-end: -1;
+      margin-top: 0;
+    }
+  }
+}

@@ -1,4 +1,4 @@
 {
-	"css": ["style/vendor.css", "style/main.css"],
-	"js": ["js/app.min.js"]
+  "css": ["style/vendor.css", "style/main.css"],
+  "js": ["js/app.min.js"]
 }

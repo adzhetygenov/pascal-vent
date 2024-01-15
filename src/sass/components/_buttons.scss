@@ -27,9 +27,10 @@
   }
 
   &::before {
-    --btn-backface-radius: #{rem(20)}; // Button back decorative radius
+    --btn-backface-radius: #{rem(24)}; // Button back decorative radius
     --btn-backface-color: hsl(
-      var(--clr-neutral-100)
+      var(--clr-neutral-100),
+      0.45
     ); // Button back decorative color
     --btn-backface-offset: #{rem(-10)}; // Button back decorative offset from the edges of the button
 

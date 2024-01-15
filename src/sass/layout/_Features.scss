@@ -1,0 +1,73 @@
+@use "../abstracts/" as *;
+
+.features {
+  &__container {
+    @include larger-than(lg) {
+      display: grid;
+      column-gap: rem(100);
+      align-items: center;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__heading {
+    margin-bottom: rem(25);
+  }
+
+  &__content {
+    @include larger-than(lg) {
+      padding: rem(46) rem(33);
+      border-radius: rem(50);
+      box-shadow: 0px 0px 10px 0px hsla(129, 12%, 33%, 0.1);
+      background-color: var(--clr-neutra-100);
+    }
+  }
+
+  &__list {
+    margin-top: rem(55);
+    display: grid;
+    gap: rem(30);
+
+    @include larger-than(sm) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    * {
+      color: hsl(var(--clr-primary-200));
+    }
+  }
+
+  &__item {
+    max-width: rem(250);
+    place-self: start;
+
+    @include larger-than(sm) {
+      place-self: start center;
+    }
+
+    &:nth-child(even) {
+      place-self: end;
+
+      @include larger-than(sm) {
+        place-self: start center;
+      }
+    }
+  }
+
+  &__card {
+    text-align: center;
+  }
+
+  &__caption {
+    font-size: rem(26);
+    margin-bottom: rem(25);
+  }
+
+  &__number {
+    font-size: rem(35);
+  }
+
+  &__text {
+    text-wrap: balance;
+  }
+}
