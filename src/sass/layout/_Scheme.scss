@@ -1,0 +1,110 @@
+@use "../abstracts/" as *;
+
+.scheme {
+  &__heading {
+    margin-bottom: rem(25);
+  }
+
+  &__list {
+    display: grid;
+    place-items: center;
+    gap: rem(30);
+
+    @include larger-than(md) {
+      place-items: start center;
+      grid-template-columns: 1fr 1fr;
+      gap: rem(50);
+    }
+
+    @include larger-than(lg) {
+      place-items: start;
+    }
+  }
+
+  &__item {
+    width: 100%;
+    position: relative;
+
+    @include larger-than(lg) {
+      max-width: rem(450);
+      padding: rem(50) 0;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: {
+        repeat: no-repeat;
+        size: contain;
+        position-y: center;
+      }
+
+      @include larger-than(lg) {
+        background-size: auto;
+      }
+    }
+
+    @for $i from 1 through 7 {
+      &:nth-child(#{$i}) {
+        &::before {
+          background-image: url(../img/sc#{$i}.svg);
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      text-align: left;
+
+      &::before {
+        background-position-x: right;
+      }
+    }
+
+    &:nth-child(even) {
+      text-align: right;
+
+      &::before {
+        background-position-x: left;
+      }
+
+      @include larger-than(lg) {
+        transform: translateY(#{rem(120)});
+        margin-left: auto;
+      }
+    }
+
+    &:last-child {
+      text-align: center;
+
+      &::before {
+        background-position-x: center;
+        transform: translateY(calc(100% - 2rem));
+      }
+
+      @include larger-than(md) {
+        grid-column: span 2;
+        padding: 0 0 rem(20);
+        margin-bottom: 2rem;
+      }
+
+      @include larger-than(lg) {
+        max-width: none;
+        margin-top: rem(120);
+      }
+    }
+  }
+
+  &__caption {
+    font-size: rem(24);
+    font-weight: var(--fw-400);
+    color: hsl(var(--clr-primary-200));
+  }
+
+  &__text {
+    text-wrap: balance;
+    font-size: 14px;
+    color: hsl(var(--clr-primary-400));
+  }
+}
