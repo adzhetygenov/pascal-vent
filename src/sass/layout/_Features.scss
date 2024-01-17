@@ -40,6 +40,19 @@
   &__item {
     max-width: rem(250);
     place-self: start;
+    position: relative;
+
+    &::before {
+      content: "";
+      @include size(box, 120);
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background-color: hsl(var(--clr-primary-300), 0.5);
+      filter: blur(100px);
+    }
 
     @include larger-than(sm) {
       place-self: start center;

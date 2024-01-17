@@ -2,6 +2,7 @@
 
 .services {
   position: relative;
+  overflow: hidden;
 
   @include larger-than(xl) {
     overflow: hidden;
@@ -80,9 +81,17 @@
     border-radius: rem(40) 0 0 0;
     font-size: rem(14);
     background-color: hsl(var(--clr-neutral-100));
-    color: hsl(var(--clr-primary-400));
+    color: hsl(var(--clr-primary-300));
     padding: rem(24) 0;
     box-shadow: -2px -2px 12px 0px transparent inset;
+
+    svg {
+      display: none;
+    }
+
+    @include larger-than(sm) {
+      padding: rem(24) rem(15);
+    }
 
     @include larger-than(lg) {
       overflow: hidden;
@@ -93,6 +102,19 @@
       transform: rotate(-180deg);
       transform-origin: center;
       border-radius: 0 0 rem(40) 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+
+      svg {
+        pointer-events: none;
+        display: block;
+        @include size(box, 33);
+      }
+
+      path {
+        fill: currentColor;
+      }
     }
 
     &:not(:first-child) {
@@ -100,6 +122,7 @@
     }
 
     &:hover,
+    &--active,
     &:focus {
       background-color: hsla(127, 53%, 58%, 1);
       color: hsl(var(--clr-neutral-100));
@@ -107,7 +130,28 @@
     }
   }
 
+  &__tabs {
+    display: grid;
+    grid-template-areas: "cards";
+
+    @include larger-than(lg) {
+      background-color: hsla(127, 77%, 92%, 1);
+      border-radius: rem(50) 0 0 rem(50);
+    }
+  }
+
   &__content {
+    grid-area: cards;
+    flex: 0 0 100%;
+    transform: translateX(150%);
+    opacity: 0;
+    transition: transform 0.4s ease-in-out, opacity 0.2s ease-out;
+
+    &--current {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
     @include larger-than(md) {
       display: grid;
       grid-template-columns: 4fr 2fr;
@@ -116,10 +160,7 @@
     }
 
     @include larger-than(lg) {
-      flex: 1;
       padding: 0 0 0 rem(45);
-      background-color: hsla(127, 77%, 92%, 1);
-      border-radius: rem(50) 0 0 rem(50);
     }
   }
 
@@ -146,8 +187,20 @@
       flex: 0 0 rem(30);
       height: rem(30);
       border-radius: rem(10);
-      @include bg-icon("t1.svg", 18px 18px);
-      background-color: hsl(var(--clr-neutral-100));
+      background: {
+        repeat: no-repeat;
+        size: rem(18) rem(18);
+        position: center;
+        color: hsl(var(--clr-neutral-100));
+      }
+    }
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        &::before {
+          background-image: url(../img/t#{$i}.svg);
+        }
+      }
     }
   }
 
@@ -158,6 +211,12 @@
     border-radius: rem(50);
     overflow: hidden;
     box-shadow: 0px -4px 8px 0px hsla(120, 49%, 12%, 0.35);
+
+    img {
+      width: 100%;
+      height: rem(170);
+      object-fit: cover;
+    }
 
     @include larger-than(md) {
       place-self: end;

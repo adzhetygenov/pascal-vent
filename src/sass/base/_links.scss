@@ -1,3 +1,8 @@
 a {
-  color: var(--clr-primary-300);
+  transition: color 0.2s linear;
+  color: hsl(var(--clr-primary-300));
+
+  &:hover {
+    color: hsl(var(--clr-primary-200));
+  }
 }

@@ -1,7 +1,13 @@
 @use "../abstracts/" as *;
 
 .callback {
-  background-color: hsla(127, 77%, 92%, 1);
+  background: {
+    color: hsla(127, 77%, 92%, 1);
+    image: url(../img/cb_bg.svg);
+    repeat: no-repeat;
+    size: cover;
+    position: center;
+  }
 
   &__heading {
     margin-bottom: rem(30);
@@ -22,15 +28,20 @@
 
   &__input {
     padding: rem(20);
-    border: 0;
+    border: rem(2) solid transparent;
     outline: none;
     border-radius: 1rem;
     box-shadow: 0px 0px 12px 0px hsla(129, 12%, 33%, 0.15);
     color: hsl(var(--clr-primary-200));
+    transition: border-color 0.2s ease-out;
 
     &::placeholder {
       color: hsl(var(--clr-primary-200), 0.7);
       font-size: rem(14);
+    }
+
+    &:focus-within {
+      border-color: hsl(var(--clr-primary-300));
     }
   }
 

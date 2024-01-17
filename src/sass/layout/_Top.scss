@@ -1,18 +1,30 @@
 @use "../abstracts/" as *;
 
 .top {
-  margin-bottom: 5rem;
   grid-area: top;
   position: relative;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  transition: transform 0.4s ease-out;
 
-  // @include larger-than(xl) {
-  //   background: hsla(127, 77%, 92%, 1);
-  //   border-radius: 0 0 rem(70) rem(70);
-  // }
+  &--scrolled {
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    padding: rem(15);
+    background-color: hsla(127, 77%, 92%, 1);
+    border-radius: 0 0 rem(20) rem(20);
+    position: fixed;
+
+    @include larger-than(xl) {
+      padding: rem(20) rem(45);
+      border-radius: 0 0 rem(70) rem(70);
+    }
+  }
+
   &__callback {
     display: none;
 

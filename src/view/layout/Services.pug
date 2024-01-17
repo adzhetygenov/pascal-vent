@@ -1,3 +1,7 @@
+include /components/fan-icon
+include /components/cond-icon
+
+
 section.services 
 	.container.services__container
 		header.services__heading
@@ -14,23 +18,43 @@ section.services
 		
 		.services__services
 			.services__inner
-				.services__controls
-					button.services__btn Система вентиляции
-					button.services__btn Кондиционирование
+				.services__controls.js-controls
+					button.js-tab-trigger(data-tab-trigger='1').services__btn.services__btn--fan.services__btn--active Система вентиляции
+						+icon-fan()
+					button.js-tab-trigger(data-tab-trigger='2').services__btn.services__btn--cond Кондиционирование
+						+icon-cond()
 
-				.services__content
-					ul.services__list
-						li.services__item Проектирование систем вентиляции любой сложности
-						li.services__item Монтаж приточной вентиляции
-						li.services__item Монтаж вытяжной вентиляции
-						li.services__item Монтаж вентиляции с увлажнением воздуха
-						li.services__item Монтаж вентиляции с рекуператором
-						li.services__item Монтаж вентиляции с осушением для бассейна
+				.services__tabs
 
-					figure.services__image
-						picture
-							source(
-								srcset='img/tab_bg-1-lg.jpg'
-								media='(min-width: 768px)'
-							)
-							img(src="img/tab_bg-1.jpg", alt="")
+					.services__content.services__content--current(data-tab='1')
+						ul.services__list
+							li.services__item Проектирование систем вентиляции любой сложности
+							li.services__item Монтаж приточной вентиляции
+							li.services__item Монтаж вытяжной вентиляции
+							li.services__item Монтаж вентиляции с увлажнением воздуха
+							li.services__item Монтаж вентиляции с рекуператором
+							li.services__item Монтаж вентиляции с осушением для бассейна
+
+						figure.services__image
+							picture
+								source(
+									srcset='img/tab_bg-1-lg.jpg'
+									media='(min-width: 768px)'
+								)
+								img(src="img/tab_bg-1.jpg", alt="")
+					.services__content(data-tab='2')
+						ul.services__list
+							li.services__item Проектирование систем кондиционирования
+							li.services__item Монтаж сплит-систем
+							li.services__item Монтаж мульти сплит-систем
+							li.services__item Монтаж VRV и VRF систем
+							li.services__item Монтаж фанкойлов
+							li.services__item Монтаж настенных, канальных и кассетных кондиционеров
+
+						figure.services__image
+							picture
+								source(
+									srcset='img/tab_bg-2.jpg'
+									media='(min-width: 768px)'
+								)
+								img(src="img/tab_bg-2-sm.jpg", alt="")

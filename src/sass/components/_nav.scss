@@ -25,6 +25,7 @@
   }
 
   @include larger-than(xl) {
+    margin: 0 auto;
     flex: none;
     order: 2;
   }

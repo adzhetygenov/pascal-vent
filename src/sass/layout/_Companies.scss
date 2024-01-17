@@ -1,0 +1,78 @@
+@use "../abstracts/" as *;
+
+.companies {
+  margin-top: rem(70);
+  position: relative;
+  background-color: hsla(127, 77%, 92%, 1);
+
+  @include larger-than(md) {
+    padding-bottom: rem(90);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+  }
+
+  @include larger-than(lg) {
+    grid-template-columns: 1fr rem(15) 7fr 5fr;
+  }
+
+  &::before {
+    content: "";
+    height: rem(40);
+    position: absolute;
+    inset: auto 0 100%;
+    z-index: -1;
+    background: {
+      image: url(../img/company_bg.svg);
+      repeat: no-repeat;
+      position: bottom center;
+      size: 100%;
+    }
+  }
+
+  &__container {
+    @include larger-than(lg) {
+      grid-column-start: 3;
+
+      margin-right: 5rem;
+    }
+  }
+
+  &__slider {
+    margin-top: rem(35);
+    padding-left: rem(15);
+    padding-bottom: 1rem;
+
+    @include larger-than(md) {
+      padding-left: 0;
+    }
+  }
+
+  &__img {
+    @include size(full);
+    border-radius: rem(30);
+    overflow: hidden;
+    background-color: hsla(120, 100%, 100%, 1);
+    display: inline-grid;
+    place-items: center;
+
+    img {
+      width: rem(140);
+    }
+  }
+
+  &__controls {
+    margin-left: rem(-15);
+    margin-top: rem(35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(35);
+  }
+
+  // Swiper
+  .swiper-slide {
+    max-width: rem(258);
+    height: rem(116);
+  }
+}

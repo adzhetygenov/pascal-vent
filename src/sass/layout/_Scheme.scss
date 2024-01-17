@@ -40,9 +40,64 @@
         size: contain;
         position-y: center;
       }
+    }
 
-      @include larger-than(lg) {
-        background-size: auto;
+    &::after {
+      @include larger-than(xl) {
+        content: "";
+        position: absolute;
+        background: {
+          repeat: no-repeat;
+        }
+      }
+    }
+
+    &:nth-child(1) {
+      &::after {
+        @include size(527, 78);
+        left: rem(151);
+      }
+    }
+
+    &:nth-child(2) {
+      &::after {
+        @include size(387, 51);
+        left: rem(-237);
+        bottom: rem(-40);
+        transform: rotate(-4deg);
+      }
+    }
+
+    &:nth-child(3) {
+      &::after {
+        @include size(220, 95);
+        right: rem(-116);
+        bottom: rem(-40);
+        transform: rotate(4deg);
+      }
+    }
+
+    &:nth-child(4) {
+      &::after {
+        @include size(587, 139);
+        right: rem(110);
+      }
+    }
+    &:nth-child(5) {
+      &::after {
+        @include size(337, 68);
+        bottom: rem(-80);
+        right: rem(-200);
+      }
+    }
+
+    @for $af from 1 through 5 {
+      @include larger-than(xl) {
+        &:nth-child(#{$af}) {
+          &::after {
+            background-image: url(../img/path#{$af}.svg);
+          }
+        }
       }
     }
 

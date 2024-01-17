@@ -1,0 +1,136 @@
+@use "../abstracts/" as *;
+
+.portfolio {
+  @include larger-than(xl) {
+    display: grid;
+    grid-template-columns: 1fr 15px min(100%, #{rem(1170)}) 15px 1fr;
+  }
+
+  &__container {
+    @include larger-than(xl) {
+      grid-column: span 5;
+    }
+  }
+
+  &__wrapper {
+    padding: 0 rem(15);
+
+    @include larger-than(xl) {
+      padding: 0;
+      grid-column: 2 / -1;
+    }
+  }
+
+  &__text {
+    margin: rem(30) 0;
+    font-size: rem(14);
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__card {
+    border-radius: rem(35);
+    overflow: hidden;
+
+    max-height: rem(420);
+
+    @include larger-than(xl) {
+      max-height: none;
+    }
+
+    img {
+      @include larger-than(xl) {
+        max-height: none;
+        width: 100%;
+        height: rem(420);
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    inset: auto rem(30) rem(35);
+
+    > * {
+      color: hsl(var(--clr-neutral-100));
+    }
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: var(--fw-400);
+
+    @include larger-than(xl) {
+      transition: transform 0.5s ease-out 0.2s;
+      transform: translateY(rem(20));
+    }
+  }
+
+  &__desc {
+    @include larger-than(xl) {
+      height: 0;
+      transition: 0.5s ease-out 0.5s;
+      transform: translateY(-2rem);
+      opacity: 0;
+    }
+  }
+
+  &__logo {
+    @include size(165, 50);
+    position: absolute;
+    top: rem(35);
+    left: 0;
+    overflow: hidden;
+    background-color: hsla(127, 77%, 92%, 1);
+    border-radius: 0 rem(15) rem(15) 0;
+    display: inline-grid;
+    place-items: center;
+
+    img {
+      width: rem(94);
+    }
+  }
+
+  &__slider {
+    @include larger-than(md) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__controls {
+    margin-top: rem(36);
+    display: flex;
+    justify-content: center;
+    gap: rem(36);
+
+    @include larger-than(md) {
+      padding-left: rem(30);
+      margin-top: 0;
+      margin-bottom: rem(30);
+      justify-content: flex-start;
+    }
+  }
+
+  @include larger-than(xl) {
+    .swiper-slide {
+      transition: max-width 0.4s ease-out;
+      max-width: 260px;
+
+      &-active {
+        max-width: 500px;
+
+        .portfolio {
+          &__desc {
+            height: 2ch;
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

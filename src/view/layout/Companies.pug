@@ -1,0 +1,27 @@
+section.companies
+	.container.companies__container
+		header.companies__heading
+			h2 Известные клиенты, которые нам доверились
+
+			p.text.companies__text Реализованы проекты квартир и коммерческих помещений в жилых комплексах от крупных застройщиков таких как: Level, ФСК, MR групп, ПИК, Самолет, Гранель, Донстрой, Пионер, Эталон, А101, Sminex, Vesper, Инград, КРОСТ, МИЦ. Мы ценим каждого клиента Pascal Vent и с радостью готовы расширять нашу клиентскую базу.
+
+	.swiper.js-slider-companies.companies__slider
+		.swiper-wrapper
+			.swiper-slide
+				figure.companies__img
+					img(src="img/cmp1.png", alt="")
+			.swiper-slide
+				figure.companies__img
+					img(src="img/cmp2.png", alt="")
+			.swiper-slide
+				figure.companies__img
+					img(src="img/cmp1.png", alt="")
+			.swiper-slide
+				figure.companies__img
+					img(src="img/cmp2.png", alt="")
+
+		.companies__controls
+			button.btn.btn--slider.btn--slider-prev
+				+arrow()
+			button.btn.btn--slider.btn--slider-next
+				+arrow()

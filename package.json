@@ -64,6 +64,7 @@
     "gsap": "^3.12.4",
     "imask": "^7.3.0",
     "normalize.css": "^8.0.1",
-    "split-type": "^0.3.4"
+    "split-type": "^0.3.4",
+    "swiper": "^11.0.5"
   }
 }

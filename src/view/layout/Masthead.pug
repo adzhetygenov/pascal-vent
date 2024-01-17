@@ -5,9 +5,7 @@ section.masthead
 		include /layout/Top
 		.masthead__content
 			header.masthead__heading
-				h1.masthead__title Чистый Воздух
-					+line('90px', 'right')
-					| Вместе с PASCAL VENT
+				h1.masthead__title Чистый Воздух Вместе с PASCAL VENT
 				p.masthead__subtitle.text-primary-300 Проектирование, поставка и монтаж систем вентиляции и кондиционирования
 
 			.masthead__contacts
@@ -21,4 +19,4 @@ section.masthead
 						a(href="").masthead__link.masthead__link--phone + 7 424 367 89 29
 
 			.masthead__cta
-				button.btn.btn--lg.masthead__btn Оставить заявку
+				button.btn.btn--lg.masthead__btn(data-modal='callback_form').js-modal-trigger Оставить заявку
