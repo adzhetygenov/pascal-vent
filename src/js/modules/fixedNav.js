@@ -33,7 +33,7 @@ export function init() {
   };
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY == 0 && nav.classList.contains("top--scrolled")) {
+    if (window.scrollY < navHeight && nav.classList.contains("top--scrolled")) {
       mast.style.paddingTop = `0`;
       nav.classList.remove("top--scrolled");
 

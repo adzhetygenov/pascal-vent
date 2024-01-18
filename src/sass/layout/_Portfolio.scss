@@ -35,6 +35,7 @@
     overflow: hidden;
 
     img {
+      width: 100%;
       height: rem(420);
       object-fit: cover;
 
@@ -97,13 +98,13 @@
 
   &__controls {
     margin-top: rem(36);
+    margin-bottom: rem(10);
     display: flex;
     justify-content: center;
     gap: rem(36);
 
     @include larger-than(md) {
       padding-left: rem(30);
-      margin-top: 0;
       margin-bottom: rem(30);
       justify-content: flex-start;
     }
