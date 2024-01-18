@@ -34,18 +34,12 @@
     border-radius: rem(35);
     overflow: hidden;
 
-    max-height: rem(420);
-
-    @include larger-than(xl) {
-      max-height: none;
-    }
-
     img {
+      height: rem(420);
+      object-fit: cover;
+
       @include larger-than(xl) {
-        max-height: none;
         width: 100%;
-        height: rem(420);
-        object-fit: cover;
       }
     }
   }

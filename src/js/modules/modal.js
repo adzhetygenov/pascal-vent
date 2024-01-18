@@ -3,7 +3,7 @@ import gsap from "gsap";
 export function init() {
   const modal = document.querySelector(".js-modal");
   const trigger = document.querySelectorAll(".js-modal-trigger");
-  const closeBtn = modal.querySelector(".js-modal-close");
+  const closeBtn = modal.querySelectorAll(".js-modal-close");
 
   const scrollBarWidth =
     window.innerWidth - document.documentElement.clientWidth;
@@ -32,7 +32,7 @@ export function init() {
       opacity: 0
     },
     {
-      display: "block",
+      display: "grid",
       opacity: 1
     }
   ).fromTo(
@@ -94,7 +94,9 @@ export function init() {
     });
   });
 
-  closeBtn.addEventListener("click", () => {
-    tl.reverse();
+  Array.from(closeBtn).map((el) => {
+    el.addEventListener("click", (e) => {
+      tl.reverse();
+    });
   });
 }

@@ -56,6 +56,7 @@
   }
 
   // Slider Button
+  /*! purgecss start ignore */
   &--slider {
     --btn-padding-y: 0;
     --btn-width: 2rem;
@@ -93,4 +94,5 @@
       }
     }
   }
+  /*! purgecss end ignore */
 }

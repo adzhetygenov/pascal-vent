@@ -1,16 +1,17 @@
 @use "../abstracts/" as *;
-
+/*! purgecss start ignore */
 .modal {
   position: fixed;
   inset: 0;
   z-index: 999999;
   background-color: hsla(127, 77%, 92%, 0.55);
   backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
 
   &__overlay {
-    display: grid;
-    place-items: center;
-    height: 100%;
+    position: absolute;
+    inset: 0;
   }
 
   &__body {
@@ -131,3 +132,4 @@
     }
   }
 }
+/*! purgecss end ignore */
